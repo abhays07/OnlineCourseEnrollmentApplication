@@ -9,14 +9,14 @@ spring:
     gateway:
       routes:
         - id: registration-service
-          uri: lb://REGISTRATION-SERVICE
+          uri: lb://registration-service
           predicates:
-            - Path=/auth/**
+            - Path=/auth/register,/auth/user
 
-        - id: course-service
-          uri: lb://COURSE-SERVICE
+        - id: login-service
+          uri: lb://login-service
           predicates:
-            - Path=/courses/**
+            - Path=/auth/login
 
 eureka:
   client:
